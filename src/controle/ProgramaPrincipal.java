@@ -10,7 +10,6 @@ public class ProgramaPrincipal {
 		janelaPrincipal.setVisible(true);
 		
 		Usuario usuario = new Usuario();
-		
 		UsuarioControle usuarioControle = new UsuarioControle(janelaPrincipal, usuario);
 		
 	}

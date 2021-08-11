@@ -42,10 +42,10 @@ curso varchar(100) not null references curso(nome_curso),
 data_ingresso date not null 
 );
 
-create table consedente(
+create table concedente(
 razao_social varchar(100) primary key,
 cnpj varchar(18) not null,
-tel_consedente varchar(10) not null, 
+tel_concedente varchar(10) not null, 
 nome_repre varchar(100) not null, 
 cargo_repre varchar(100) not null,
 cep varchar(10) not null,
@@ -73,9 +73,9 @@ nome_curso varchar(100) not null references curso(nome_curso),
 nome_orientador varchar(100) not null references curso(repre_coordenacao), 
 nome_universidade varchar(100) not null references curso(nome_universidade),
 nome_repre_uni varchar(100) not null references curso(repre_universidade),
-cnpj_empresa varchar(18) not null references consedente(cnpj),
-razao_social varchar(100) not null references consedente(razao_social),
-nome_repre varchar(100) not null references consedente(nome_repre),
+cnpj_empresa varchar(18) not null references concedente(cnpj),
+razao_social varchar(100) not null references concedente(razao_social),
+nome_repre varchar(100) not null references concedente(nome_repre),
 info_complementar varchar(500)
 );
 
@@ -143,7 +143,7 @@ insert into estagiario values("00110000101", "Jõao", "Masculino", "2000-07-20",
 							 "93150010", "Rua Carlos Klein, 110", "Boa Vista", "Portão", 
                              "Informática Biomédica", "2018-03-27");                             
                              					
-insert into consedente values("SAP Labs Latin America", "01254792215798", "5135003500", "Thomaz Ritter", 
+insert into concedente values("SAP Labs Latin America", "01254792215798", "5135003500", "Thomaz Ritter", 
 							 "Gerente RH", "93130001","Avenida SAP, 188", "Cristo Rei", "São Leopoldo", 
                              "RS"),
 							 ("Hospital Moinhos de Vento", "24894792865478", "5135013501", "Pamela Ferraza", 
@@ -203,5 +203,5 @@ insert into termo_compromisso values(000001,"2020-08-20", "2021-06-26", 6.0, 30.
 select * from usuario;
 select * from curso;
 select * from estagiario;
-select * from consedente;
+select * from concedente;
 select * from termo_compromisso;
