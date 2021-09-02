@@ -238,15 +238,15 @@ public class TermoCompromissoController implements ActionListener, KeyListener {
 	public void showMessageError(String message) {
 		final ImageIcon icon = new ImageIcon(getClass().getResource("/figuras/error.jpeg"));
 		JOptionPane.showMessageDialog(janelaPrincipal, message, "ProcuraDados", JOptionPane.NO_OPTION, icon);
-		janelaPrincipal.getTelaLogin().limparCamposTela();
-		janelaPrincipal.getCardLayout().show(janelaPrincipal.getContentPane(), "principal");
+		//janelaPrincipal.getTelaLogin().limparCamposTela();
+		//janelaPrincipal.getCardLayout().show(janelaPrincipal.getContentPane(), "principal");
 	}
 
 	public void showMessageSuccess(String message) {
 		final ImageIcon icon = new ImageIcon(getClass().getResource("/figuras/ok-48.png"));
 		JOptionPane.showMessageDialog(janelaPrincipal, message, "ProcuraDados", JOptionPane.NO_OPTION, icon);
 		janelaPrincipal.getTelaLogin().limparCamposTela();
-		janelaPrincipal.getCardLayout().show(janelaPrincipal.getContentPane(), "principal");
+		//janelaPrincipal.getCardLayout().show(janelaPrincipal.getContentPane(), "principal");
 	}
 
 	public void limparTela() {
