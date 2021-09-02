@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -14,6 +15,12 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.ImageIcon;
 
+import visao.Estagio;
+import visao.Curso;
+import visao.Concedente;
+import visao.TermoCompromisso;
+
+
 public class JanelaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -22,6 +29,10 @@ public class JanelaPrincipal extends JFrame {
 	private CardLayout cardLayout;
 	private JPanel telaPrincipal;
 	private TelaLogin telaLogin;
+	private TermoCompromisso telaTermoCompromisso;
+	private Curso telaCurso;
+	private Estagio telaEstagiario;
+	private Concedente telaConcedente;
 	
 	private JMenuItem menuItemAutenticar;
 	private JMenuItem menuItemSair;
@@ -30,6 +41,11 @@ public class JanelaPrincipal extends JFrame {
 	private JMenuItem menuItemConcedente;
 	private JMenuItem menuItemTermo;
 
+	public Estagio estagio = new Estagio();
+	public Curso curso = new Curso();
+	public Concedente concedente = new Concedente();
+	//public TermoCompromisso termoCompromisso = new TermoCompromisso();
+	
 	/**
 	 * Create the frame.
 	 */
@@ -48,10 +64,17 @@ public class JanelaPrincipal extends JFrame {
 		// Inicia telas
 		telaPrincipal = new JPanel();
 		telaLogin = new TelaLogin();
+		telaTermoCompromisso = new TermoCompromisso();
+		telaCurso = new Curso();
+		telaEstagiario = new Estagio();
+		telaConcedente = new Concedente();
 		
 		contentPane.add(telaPrincipal, "principal");
 		contentPane.add(telaLogin, "login");
-		
+		contentPane.add(telaTermoCompromisso, "Termo de Compromisso");
+		contentPane.add(telaCurso, "Curso");
+		contentPane.add(telaEstagiario, "Estagiario");
+		contentPane.add(telaConcedente, "Concedente");
 		
 		// Add menus
 		JMenuBar menuBar = new JMenuBar();
@@ -92,24 +115,48 @@ public class JanelaPrincipal extends JFrame {
 		menuBar.add(menuGerenciar);
 
 		menuItemEstagiario = new JMenuItem("Estagi\u00E1rio");
+		menuItemEstagiario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				cardLayout.show(contentPane, "Estagiario");
+				pack();
+			}
+		});
 		menuItemEstagiario.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/working-man.png")));
 		menuItemEstagiario.setFont(new Font("Arial", Font.PLAIN, 14));
 		menuItemEstagiario.setEnabled(false);
 		menuGerenciar.add(menuItemEstagiario);
 
 		menuItemCurso = new JMenuItem("Curso");
+		menuItemCurso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, "Curso");
+				pack();
+			}
+		});
 		menuItemCurso.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/online-course.png")));
 		menuItemCurso.setFont(new Font("Arial", Font.PLAIN, 14));
 		menuItemCurso.setEnabled(false);
 		menuGerenciar.add(menuItemCurso);
 
 		menuItemConcedente = new JMenuItem("Concedente");
+		menuItemConcedente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, "Concedente");
+				pack();
+			}
+		});
 		menuItemConcedente.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/companhia.png")));
 		menuItemConcedente.setFont(new Font("Arial", Font.PLAIN, 14));
 		menuItemConcedente.setEnabled(false);
-		menuGerenciar.add(menuItemConcedente);
-
-		menuItemTermo = new JMenuItem("Termo de Compromisso.");
+		menuGerenciar.add(menuItemConcedente);		
+		
+		menuItemTermo = new JMenuItem("Termo de Compromisso");
+		menuItemTermo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(contentPane, "Termo de Compromisso");
+				pack();
+			}
+		});
 		menuItemTermo.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/figuras/documentos.png")));
 		menuItemTermo.setFont(new Font("Arial", Font.PLAIN, 14));
 		menuItemTermo.setEnabled(false);
@@ -123,6 +170,12 @@ public class JanelaPrincipal extends JFrame {
 	public void setTelaLogin(TelaLogin telaLogin) {
 		this.telaLogin = telaLogin;
 	}
+	
+
+	public TermoCompromisso getTelaTermoCompromisso() {
+		return telaTermoCompromisso;
+	}
+
 
 	public CardLayout getCardLayout() {
 		return cardLayout;

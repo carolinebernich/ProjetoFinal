@@ -1,5 +1,8 @@
 package controle;
 
+import modelo.Concedente;
+import modelo.Curso;
+import modelo.Estagiario;
 import modelo.Usuario;
 import visao.JanelaPrincipal;
 
@@ -10,7 +13,11 @@ public class ProgramaPrincipal {
 		janelaPrincipal.setVisible(true);
 		
 		Usuario usuario = new Usuario();
-		UsuarioControle usuarioControle = new UsuarioControle(janelaPrincipal, usuario);
+		Estagiario estagiario = new Estagiario();
+		Curso curso = new Curso();
+		Concedente concedente = new Concedente();
 		
+		UsuarioControle usuarioControle = new UsuarioControle(janelaPrincipal, usuario);
+		TermoCompromissoController termoCompromissoController = new TermoCompromissoController(janelaPrincipal, estagiario, curso, concedente);
 	}
 }

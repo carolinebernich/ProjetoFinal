@@ -19,8 +19,8 @@ public class ConexaoMySQL {
 		try {
 			Class.forName(driverName);
 		} catch (ClassNotFoundException e1) {
-			 e1.printStackTrace();
-			 System.out.println("O driver especificado nao foi encontrado.");
+			e1.printStackTrace();
+			System.out.println("O driver especificado nao foi encontrado.");
 		}
 		// Configurando a nossa conexão com um banco de dados
 		String serverName = "localhost";
@@ -68,10 +68,10 @@ public class ConexaoMySQL {
 		ConexaoMySQL.con = con;
 	}
 
-	public static void main(String[] args) {
-		ConexaoMySQL.abrirConexao();
-		ConexaoMySQL.obterStatusConexao();
-		ConexaoMySQL.fecharConexao();
-	}
+	//public static void main(String[] args) {
+	//	ConexaoMySQL.abrirConexao();
+	//	ConexaoMySQL.obterStatusConexao();
+	//	ConexaoMySQL.fecharConexao();
+	//}
 
 }
